@@ -109,7 +109,7 @@ input[type="date"].error {
 
 @media (prefers-color-scheme: light) {
   input[type="date"]::-webkit-calendar-picker-indicator {
-    background: url('calendar.svg') no-repeat center center;
+    background: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/calendar.svg') no-repeat center center;
     background-size: contain;
   }
 }
@@ -117,7 +117,7 @@ input[type="date"].error {
 
 @media (prefers-color-scheme: dark) {
   input[type="date"]::-webkit-calendar-picker-indicator {
-    background: url('calendar_white.svg') no-repeat center center;
+    background: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/calendar_white.svg') no-repeat center center;
     background-size: contain;
   }
 }
@@ -296,11 +296,11 @@ input[type="search"] {
   background-color: var(--TextFieldBackground);
   transition: border-color 0.3s, color 0.3s;
   width: calc(100% - 10px); 
-  background-image: url('search.svg'); 
+  background-image: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/search.svg'); 
 
   
   @media (prefers-color-scheme: dark) {
-    background-image: url('search_white.svg');
+    background-image: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/search_white.svg');
   }
 
   background-repeat: no-repeat;
