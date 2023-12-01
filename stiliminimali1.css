@@ -1,3 +1,44 @@
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ObjectColor: #000000;
+    --DetailColor: #c94802;
+    --HoveredDetail: #e3691e;
+    --ActiveDetail: #a53600;
+    --TextFieldBackground: #ffffff;
+    --ButtonColor: #d15b05; 
+    --ButtonHoveredColor: #a84300; 
+    --ButtonActiveColor: #873e00; 
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #333333;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ObjectColor: #ffffff;
+    --DetailColor: #c94802;
+    --HoveredDetail: #e3691e;
+    --ActiveDetail: #a53600;
+    --TextFieldBackground: #101010;
+    --ButtonColor: #d15b05; 
+    --ButtonHoveredColor: #a84300; 
+    --ButtonActiveColor: #873e00; 
+  }
+
+  body {
+    background-color: #1a1a1a;
+    color: #eeeeee;
+  }
+}
 button,
 input[type="file"] {
   border-radius: 8px;
@@ -29,6 +70,65 @@ input[type="file"]:hover::-webkit-file-upload-button {
 }
 
 
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-bottom: 20px;
+  color: var(--ObjectColor); 
+  border-radius: 8px; 
+  overflow: hidden; 
+  position: relative; 
+}
+
+
+table:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border: 2px solid var(--ObjectColor); 
+  border-radius: 8px; 
+  pointer-events: none; 
+}
+
+
+th, td {
+  border: none; 
+}
+
+
+th {
+  background-color: var(--DetailColor); 
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+}
+
+
+td {
+  padding: 8px;
+}
+
+
+tr:nth-child(even) {
+  background-color: var(--EvenRowBackground); 
+}
+
+
+td, th {
+  text-align: center;
+}
+
+
+.table-error {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+}
 
 input[type="checkbox"] {
   appearance: none;
@@ -109,7 +209,7 @@ input[type="date"].error {
 
 @media (prefers-color-scheme: light) {
   input[type="date"]::-webkit-calendar-picker-indicator {
-    background: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/calendar.svg') no-repeat center center;
+    background: url('calendar.svg') no-repeat center center;
     background-size: contain;
   }
 }
@@ -117,7 +217,7 @@ input[type="date"].error {
 
 @media (prefers-color-scheme: dark) {
   input[type="date"]::-webkit-calendar-picker-indicator {
-    background: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/calendar_white.svg') no-repeat center center;
+    background: url('calendar_white.svg') no-repeat center center;
     background-size: contain;
   }
 }
@@ -296,11 +396,11 @@ input[type="search"] {
   background-color: var(--TextFieldBackground);
   transition: border-color 0.3s, color 0.3s;
   width: calc(100% - 10px); 
-  background-image: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/search.svg'); 
+  background-image: url('search.svg'); 
 
   
   @media (prefers-color-scheme: dark) {
-    background-image: url('https://cdn.jsdelivr.net/gh/Morghi2/minimalcss@main/search_white.svg');
+    background-image: url('search_white.svg');
   }
 
   background-repeat: no-repeat;
@@ -462,45 +562,4 @@ textarea.error {
   color: #e74c3c;
   font-size: 14px;
   margin-top: 5px;
-}
-
-body {
-  font-family: 'Roboto', sans-serif;
-}
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --ObjectColor: #000000;
-    --DetailColor: #c94802;
-    --HoveredDetail: #e3691e;
-    --ActiveDetail: #a53600;
-    --TextFieldBackground: #ffffff;
-    --ButtonColor: #d15b05; 
-    --ButtonHoveredColor: #a84300; 
-    --ButtonActiveColor: #873e00; 
-  }
-
-  body {
-    background-color: #ffffff;
-    color: #333333;
-  }
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ObjectColor: #ffffff;
-    --DetailColor: #c94802;
-    --HoveredDetail: #e3691e;
-    --ActiveDetail: #a53600;
-    --TextFieldBackground: #101010;
-    --ButtonColor: #d15b05; 
-    --ButtonHoveredColor: #a84300; 
-    --ButtonActiveColor: #873e00; 
-  }
-
-  body {
-    background-color: #1a1a1a;
-    color: #eeeeee;
-  }
 }
