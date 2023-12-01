@@ -1,101 +1,244 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
 
-/* Tema Chiaro */
+
+
 @media (prefers-color-scheme: light) {
+  :root {
+    --ObjectColor: #000000; 
+    --DetailColor: #c94802; 
+    --HoveredDetail: #e3691e; 
+    --ActiveDetail: #a53600; 
+    --TextFieldBackground: #ffffff; 
+  }
+
   body {
-    background-color: #fff;
-    color: #333;
-  }
-
-  header, section, footer {
-    background-color: #f0f0f0;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 8px;
-  }
-
-  a {
-    color: #007bff;
-  }
-
-  button, input[type="button"], input[type="submit"], input[type="reset"] {
-    background-color: #007bff;
-    color: #fff;
-  }
-
-  button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #0056b3;
-  }
-
-  input[type="text"], input[type="password"], input[type="email"], textarea {
-    border: 1px solid #ccc;
-  }
-
-  input[type="file"] {
-    margin: 6px 0;
-  }
-
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
-
-  .switch input:checked + .slider {
-    background-color: #007bff;
-  }
-
-  select {
-    border: 1px solid #ccc;
+    background-color: #ffffff; 
+    color: #333333; 
   }
 }
 
-/* Tema Scuro */
+
 @media (prefers-color-scheme: dark) {
+  :root {
+    --ObjectColor: #ffffff; 
+    --DetailColor: #c94802; 
+    --HoveredDetail: #e3691e; 
+    --ActiveDetail: #a53600; 
+    --TextFieldBackground: #101010; 
+  }
+
   body {
-    background-color: #333;
-    color: #fff;
+    background-color: #1a1a1a; 
+    color: #eeeeee; 
   }
+}
+button,
+a.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  border: 2px solid var(--ObjectColor);
+  color: var(--ObjectColor);
+  border-radius: 8px; 
+  background-color: var(--DetailColor);
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
 
-  header, section, footer {
-    background-color: #1a1a1a;
-    padding: 10px;
-    margin: 10px;
-    border-radius: 8px;
-  }
 
-  a {
-    color: #66b3ff;
-  }
+button:hover,
+a.button:hover {
+  background-color: var(--HoveredDetail);
+  color: #fff;
+}
 
-  button, input[type="button"], input[type="submit"], input[type="reset"] {
-    background-color: #66b3ff;
-    color: #fff;
-  }
 
-  button:hover, input[type="button"]:hover, input[type="submit"]:hover, input[type="reset"]:hover {
-    background-color: #3385ff;
-  }
+button:active,
+a.button:active {
+  background-color: var(--HoveredDetail);
+  border-color: var(--HoveredDetail);
+  color: #fff;
+}
 
-  input[type="text"], input[type="password"], input[type="email"], textarea {
-    border: 1px solid #666;
-  }
+input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ObjectColor);
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle; 
+  transition: border-color 0.2s ease;
+}
 
-  input[type="file"] {
-    margin: 6px 0;
-  }
 
-  input[type="checkbox"] {
-    margin-right: 5px;
-  }
+input[type="checkbox"]:checked {
+  border-color: var(--DetailColor);
+}
 
-  .switch input:checked + .slider {
-    background-color: #66b3ff;
-  }
 
-  select {
-    border: 1px solid #666;
-  }
+input[type="checkbox"]::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--DetailColor);
+  border-radius: 2px;
+  position: relative; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+
+input[type="checkbox"]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="radio"] {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--ObjectColor);
+  border-radius: 50%; 
+  outline: none;
+  cursor: pointer;
+  vertical-align: middle; 
+  margin-bottom: 2px; 
+  transition: border-color 0.2s ease;
+}
+
+
+input[type="radio"]:checked {
+  border-color: var(--DetailColor);
+}
+
+
+input[type="radio"]::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  background-color: var(--DetailColor);
+  border-radius: 50%; 
+  position: relative; 
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  transition: transform 0.2s ease;
+}
+
+
+input[type="radio"]:checked::before {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="checkbox"].switch {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 32px; 
+  height: 20px;
+  border-radius: 10px;
+  background-color: transparent;
+  outline: none;
+  cursor: pointer;
+  position: relative;
+  border: 2px solid var(--ObjectColor);
+  transition: border-color 0.2s ease;
+  vertical-align: middle; 
+}
+
+
+input[type="checkbox"].switch::before {
+  content: '';
+  display: block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: white;
+  position: absolute;
+  top: 50%;
+  left: 2px; 
+  transform: translate(0, -50%);
+  transition: left 0.2s ease;
+}
+
+
+input[type="checkbox"].switch:checked {
+  border-color: var(--DetailColor);
+}
+
+
+input[type="checkbox"].switch:checked::before {
+  left: calc(100% - 14px); 
+}
+
+
+input[type="checkbox"].switch:not(:checked)::before {
+  left: 2px; 
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  box-sizing: border-box;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid var(--ObjectColor); 
+  border-radius: 8px; 
+  outline: none;
+  font-size: 16px;
+  color: var(--ObjectColor); 
+  background-color: var(--TextFieldBackground); 
+  transition: border-color 0.3s, color 0.3s; 
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: var(--DetailColor); 
+}
+
+
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+input[type="number"]:disabled,
+input[type="tel"]:disabled,
+textarea:disabled {
+  background-color: var(--TextFieldBackground); 
+  border-color: #555; 
+  color: #777; 
+}
+
+
+input[type="text"].error,
+input[type="password"].error,
+input[type="email"].error,
+input[type="number"].error,
+input[type="tel"].error,
+textarea.error {
+  border-color: #e74c3c;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
 }
