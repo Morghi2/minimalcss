@@ -1,65 +1,34 @@
-
-
-
-@media (prefers-color-scheme: light) {
-  :root {
-    --ObjectColor: #000000; 
-    --DetailColor: #c94802; 
-    --HoveredDetail: #e3691e; 
-    --ActiveDetail: #a53600; 
-    --TextFieldBackground: #ffffff; 
-  }
-
-  body {
-    background-color: #ffffff; 
-    color: #333333; 
-  }
-}
-
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --ObjectColor: #ffffff; 
-    --DetailColor: #c94802; 
-    --HoveredDetail: #e3691e; 
-    --ActiveDetail: #a53600; 
-    --TextFieldBackground: #101010; 
-  }
-
-  body {
-    background-color: #1a1a1a; 
-    color: #eeeeee; 
-  }
-}
 button,
-a.button {
-  display: inline-block;
-  padding: 10px 20px;
-  font-size: 16px;
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border: 2px solid var(--ObjectColor);
+input[type="file"] {
+  border-radius: 8px;
+  background-color: var(--TextFieldBackground);
   color: var(--ObjectColor);
-  border-radius: 8px; 
-  background-color: var(--DetailColor);
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 10px 20px; 
+  font-size: 16px; 
+  border: 2px solid var(--ObjectColor);
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
 }
-
 
 button:hover,
-a.button:hover {
-  background-color: var(--HoveredDetail);
-  color: #fff;
+input[type="file"]:hover {
+  border-color: var(--DetailColor);
+}
+
+input[type="file"]::-webkit-file-upload-button {
+  border: none;
+  padding: 0;
+  background: none;
+  color: var(--ObjectColor);
+  cursor: pointer;
+  margin-right: 8px; 
+  transition: color 0.3s ease-in-out;
+}
+
+input[type="file"]:hover::-webkit-file-upload-button {
+  color: var(--DetailColor);
 }
 
 
-button:active,
-a.button:active {
-  background-color: var(--HoveredDetail);
-  border-color: var(--HoveredDetail);
-  color: #fff;
-}
 
 input[type="checkbox"] {
   appearance: none;
@@ -100,6 +69,181 @@ input[type="checkbox"]:checked::before {
   transform: translate(-50%, -50%) scale(1);
 }
 
+input[type="date"] {
+  box-sizing: border-box;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid var(--ObjectColor);
+  border-radius: 8px;
+  outline: none;
+  font-size: 16px;
+  color: var(--ObjectColor);
+  background-color: var(--TextFieldBackground);
+  transition: border-color 0.3s, color 0.3s;
+}
+
+
+input[type="date"]:focus {
+  border-color: var(--DetailColor);
+}
+
+
+input[type="date"]:disabled {
+  background-color: var(--TextFieldBackground);
+  border-color: #555;
+  color: #777;
+}
+
+
+input[type="date"].error {
+  border-color: #e74c3c;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+
+@media (prefers-color-scheme: light) {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url('calendar.svg') no-repeat center center;
+    background-size: contain;
+  }
+}
+
+
+@media (prefers-color-scheme: dark) {
+  input[type="date"]::-webkit-calendar-picker-indicator {
+    background: url('calendar_white.svg') no-repeat center center;
+    background-size: contain;
+  }
+}
+
+
+.DayPicker {
+  display: inline-block;
+  font-size: 14px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.DayPicker-Month {
+  display: table;
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  margin: 0;
+}
+
+.DayPicker-Caption {
+  display: table-caption;
+  padding: 10px;
+  text-align: left;
+  font-size: 16px;
+  font-weight: bold;
+  border-bottom: 1px solid var(--ObjectColor);
+}
+
+.DayPicker-Weekdays {
+  display: table-header-group;
+  background-color: var(--TextFieldBackground);
+}
+
+.DayPicker-Weekday {
+  display: table-cell;
+  padding: 10px;
+  color: var(--ObjectColor);
+  font-size: 14px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.DayPicker-Body {
+  display: table-row-group;
+}
+
+.DayPicker-Week {
+  display: table-row;
+}
+
+.DayPicker-Day {
+  display: table-cell;
+  padding: 10px;
+  color: var(--ObjectColor);
+  text-align: center;
+  cursor: pointer;
+}
+
+.DayPicker-Day--today {
+  font-weight: bold;
+}
+
+.DayPicker-Day--selected {
+  background-color: var(--DetailColor);
+  color: #fff;
+  border-radius: 50%;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea {
+  box-sizing: border-box;
+  padding: 8px;
+  margin: 5px 0;
+  border: 1px solid var(--ObjectColor); 
+  border-radius: 8px; 
+  outline: none;
+  font-size: 16px;
+  color: var(--ObjectColor); 
+  background-color: var(--TextFieldBackground); 
+  transition: border-color 0.3s, color 0.3s; 
+}
+
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+textarea:focus {
+  border-color: var(--DetailColor); 
+}
+
+
+input[type="text"]:disabled,
+input[type="password"]:disabled,
+input[type="email"]:disabled,
+input[type="number"]:disabled,
+input[type="tel"]:disabled,
+textarea:disabled {
+  background-color: var(--TextFieldBackground); 
+  border-color: #555; 
+  color: #777; 
+}
+
+
+input[type="text"].error,
+input[type="password"].error,
+input[type="email"].error,
+input[type="number"].error,
+input[type="tel"].error,
+textarea.error {
+  border-color: #e74c3c;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
 input[type="radio"] {
   appearance: none;
   -webkit-appearance: none;
@@ -138,6 +282,83 @@ input[type="radio"]::before {
 
 input[type="radio"]:checked::before {
   transform: translate(-50%, -50%) scale(1);
+}
+
+input[type="search"] {
+  box-sizing: border-box;
+  padding: 12px 12px 12px 40px; 
+  margin: 5px 0;
+  border: 1px solid var(--ObjectColor);
+  border-radius: 50px; 
+  outline: none;
+  font-size: 16px;
+  color: var(--ObjectColor);
+  background-color: var(--TextFieldBackground);
+  transition: border-color 0.3s, color 0.3s;
+  width: calc(100% - 10px); 
+  background-image: url('search.svg'); 
+
+  
+  @media (prefers-color-scheme: dark) {
+    background-image: url('search_white.svg');
+  }
+
+  background-repeat: no-repeat;
+  background-position: 10px center; 
+}
+
+
+input[type="search"]:focus {
+  border-color: var(--DetailColor);
+}
+
+
+input[type="search"]:disabled {
+  background-color: var(--TextFieldBackground);
+  border-color: #555;
+  color: #777;
+}
+
+
+input[type="search"].error {
+  border-color: #e74c3c;
+}
+
+
+.error-message {
+  color: #e74c3c;
+  font-size: 14px;
+  margin-top: 5px;
+}
+select {
+  border-radius: 8px;
+  background-color: var(--TextFieldBackground);
+  color: var(--ObjectColor);
+  padding: 10px; 
+  font-size: 16px; 
+  border: 2px solid var(--ObjectColor);
+  transition: border-color 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+select:hover {
+  border-color: var(--DetailColor);
+}
+
+select:focus {
+  outline: none;
+  box-shadow: 0 0 5px var(--DetailColor); 
+}
+
+option {
+  background-color: var(--TextFieldBackground);
+  color: var(--ObjectColor);
+  border-radius: 8px; 
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+option:hover {
+  background-color: var(--DetailColor);
+  color: var(--TextFieldBackground);
 }
 
 input[type="checkbox"].switch {
