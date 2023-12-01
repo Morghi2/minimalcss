@@ -463,3 +463,44 @@ textarea.error {
   font-size: 14px;
   margin-top: 5px;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --ObjectColor: #000000;
+    --DetailColor: #c94802;
+    --HoveredDetail: #e3691e;
+    --ActiveDetail: #a53600;
+    --TextFieldBackground: #ffffff;
+    --ButtonColor: #d15b05; 
+    --ButtonHoveredColor: #a84300; 
+    --ButtonActiveColor: #873e00; 
+  }
+
+  body {
+    background-color: #ffffff;
+    color: #333333;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --ObjectColor: #ffffff;
+    --DetailColor: #c94802;
+    --HoveredDetail: #e3691e;
+    --ActiveDetail: #a53600;
+    --TextFieldBackground: #101010;
+    --ButtonColor: #d15b05; 
+    --ButtonHoveredColor: #a84300; 
+    --ButtonActiveColor: #873e00; 
+  }
+
+  body {
+    background-color: #1a1a1a;
+    color: #eeeeee;
+  }
+}
